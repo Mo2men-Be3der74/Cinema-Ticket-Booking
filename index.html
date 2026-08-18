@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUMA</title>
+    <link rel = "stylesheet" href = "style.css" >
     <style>
-      /* Base Reset */
+        /* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+main {
+  flex: 1;
+}
+
 body {
   background-color: #0d0e12;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #ffffff;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 250px; /* Gives space so content won't overlap the footer */
+}
+html {
+  height: 100%;
 }
 
 /* Header Container */
@@ -170,6 +181,109 @@ body {
     width: 160px;
   }
 }
+/* Footer Base Container */
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #08080a; /* Dark sleek background matching your theme */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 2rem 3rem;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Inner Layout Grid */
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.5fr; /* 3 menu columns + 1 brand column */
+  gap: 2rem;
+}
+
+/* Column Headings */
+.footer-heading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Navigation Link Lists */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #8b929e;
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Brand Column (Far Right) */
+.footer-brand-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.tagline {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #8b929e;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.copyright {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #525866;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 1.5rem;
+  }
+
+  .footer-brand-col {
+    text-align: left;
+    align-items: flex-start;
+    grid-column: span 2;
+  }
+}
     </style>
 </head>
 <body>
@@ -205,5 +319,46 @@ body {
     </div>
   </nav>
 </header>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Column 1: Experience -->
+    <div class="footer-col">
+      <h4 class="footer-heading">EXPERIENCE</h4>
+      <ul class="footer-links">
+        <li><a href="#">IMAX LASER</a></li>
+        <li><a href="#">DOLBY CINEMA</a></li>
+        <li><a href="#">THE LOUNGE</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 2: Company -->
+    <div class="footer-col">
+      <h4 class="footer-heading">COMPANY</h4>
+      <ul class="footer-links">
+        <li><a href="#">ABOUT LUMA</a></li>
+        <li><a href="#">CAREERS</a></li>
+        <li><a href="#">PRESS</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Social -->
+    <div class="footer-col">
+      <h4 class="footer-heading">SOCIAL</h4>
+      <ul class="footer-links">
+        <li><a href="#">INSTAGRAM</a></li>
+        <li><a href="#">TWITTER / X</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Brand & Copyright -->
+    <div class="footer-col footer-brand-col">
+      <h2 class="footer-logo">LUMA</h2>
+      <p class="tagline">CINEMA, DISTILLED.</p>
+      <p class="copyright">&copy; 2026 LUMA CINEMA GROUP.<br>ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
