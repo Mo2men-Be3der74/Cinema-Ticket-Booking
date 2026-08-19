@@ -1,0 +1,102 @@
+/* Main Seat Container */
+.seating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0d0e12;
+  padding: 2rem;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+/* Screen Line */
+.screen {
+  width: 75%;
+  height: 8px;
+  background: #ffffff;
+  margin-bottom: 8rem;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #64748b;
+  padding-top: 15px;
+}
+
+/* Rows Layout */
+.seat-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  width: 20px;
+}
+
+/* Base Seat Style */
+.seat{
+  width: 28px;
+  height: 26px;
+  background-color: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover Effect for Available Seats */
+.seat:not(.occupied):not(.x):hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Selected State */
+.seat.selected {
+  background-color: #ffffff;
+  border-color: #adadad;
+  box-shadow: 0 0 5px rgba(242, 239, 239, 0.531);
+}
+
+/* Occupied / Sold State */
+.seat.occupied {
+  background-color: #0f172a;
+  border-color: rgba(255, 255, 255, 0.03);
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Aisle Space */
+.seat.gap {
+  margin-right: 30px;
+}
+
+/* Legend Styling */
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  cursor: default;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-item .seat.x , .seat.occupied.x{
+  cursor: default;
+}
