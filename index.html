@@ -1,140 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMA</title>
-    <link rel = "stylesheet" href = "style/base.css" >
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <style>
+    .container {
+      display: flex;
+      gap: 15px;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db; /* Default: Blue */
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Active flipped state */
+    .box.flipped {
+      background-color: #e74c3c; /* Active: Red */
+    }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <nav class="navbar">
-    <!-- 1. Logo (Far Left) -->
-    <a href="#" class="brand-logo">LUMA</a>
 
-    <!-- 2. Main Navigation Links (Middle / Spaced) -->
-    <ul class="nav-menu">
-      <li><a href="#" class="nav-link">MOVIES</a></li>
-      <li><a href="#" class="nav-link">THEATERS</a></li>
-      <li><a href="#" class="nav-link">CONCESSIONS</a></li>
-    </ul>
-
-    <!-- 3. Search & Profile (Far Right) -->
-    <div class="nav-right">
-      <div class="search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" placeholder="Search movies..." aria-label="Search movies">
-        <span class="kbd-shortcut">⌘K</span>
-      </div>
-
-      <button class="profile-btn" aria-label="User Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-      </button>
-    </div>
-  </nav>
-</header>
-
-<section class="main">
-      <div class="home-main" style="background-color: grey;">
-            <div class="content">
-                  <div class="status">
-                        <div class="card playing">NOW PLAYING</div>
-                        <div class="card imax">IMAX 70MM</div>
-                  </div>
-                  <div class="title">
-                        <h1>DUNE: PART TWO</h1>
-                  </div>
-                  <div class="attributes">
-                        <ul>
-                              <li>2026</li>
-                              <li>2H 49M</li>
-                              <li>ENGLISH AUDIO / ARABIC SUB</li>
-                              <li><i class="fa-solid fa-star"></i> 8.7 IMDB</li>
-                        </ul>
-                  </div>
-                  <div class="description">
-                        Paul Atreides unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe.
-                  </div>
-                  <button>RESERVE TICKETS</button>
-            </div>
-      </div>
-</section>
-
-<div class="radio">
-      <div class="radio">
-            <div class="option">
-                  <input type="radio" id="all" name="screening" value="all">
-                  <label for="all">ALL</label>
-            </div>
-            <div class="option">
-                  <input type="radio" id="not-playing" name="screening" value="not-playing">
-                  <label for="not-playing">NOW PLAYING</label>
-            </div>
-            <div class="option">
-                  <input type="radio" id="upcoming" name="screening" value="upcoming">
-                  <label for="upcoming">UPCOMING</label>
-            </div>
-            <div class="option">
-                  <input type="radio" id="imax" name="screening" value="imax">
-                  <label for="imax">IMAX SCREENINGS</label>
-            </div>
-            <div class="option">
-                  <input type="radio" id="special" name="screening" value="special">
-                  <label for="special">SPECIAL SCREENINGS</label>
-            </div>
-      </div>
-</div>
-
-<footer class="site-footer">
-  <div class="footer-container">
-    <!-- Column 1: Experience -->
-    <div class="footer-col">
-      <h4 class="footer-heading">EXPERIENCE</h4>
-      <ul class="footer-links">
-        <li><a href="#">IMAX LASER</a></li>
-        <li><a href="#">DOLBY CINEMA</a></li>
-        <li><a href="#">THE LOUNGE</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 2: Company -->
-    <div class="footer-col">
-      <h4 class="footer-heading">COMPANY</h4>
-      <ul class="footer-links">
-        <li><a href="#">ABOUT LUMA</a></li>
-        <li><a href="#">CAREERS</a></li>
-        <li><a href="#">PRESS</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 3: Social -->
-    <div class="footer-col">
-      <h4 class="footer-heading">SOCIAL</h4>
-      <ul class="footer-links">
-        <li><a href="#">INSTAGRAM</a></li>
-        <li><a href="#">TWITTER / X</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 4: Brand & Copyright -->
-    <div class="footer-col footer-brand-col">
-      <h2 class="footer-logo">LUMA</h2>
-      <p class="tagline">CINEMA, DISTILLED.</p>
-      <p class="copyright">&copy; 2026 LUMA CINEMA GROUP.<br>ALL RIGHTS RESERVED.</p>
-    </div>
+  <!-- Parent container wrapping all divs -->
+  <div id="boxContainer" class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
   </div>
-</footer>
+
+  <script>
+    // 1. Target the parent container
+    const container = document.getElementById('boxContainer');
+
+    // 2. Listen for clicks on the container
+    container.addEventListener('click', (event) => {
+      // 3. Check if the clicked element is one of the boxes
+      if (event.target.classList.contains('box')) {
+        // 4. Toggle the flipped class on ONLY the clicked box
+        event.target.classList.toggle('flipped');
+      }
+    });
+  </script>
 
 </body>
 </html>

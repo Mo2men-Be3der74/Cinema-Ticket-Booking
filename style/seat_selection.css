@@ -100,3 +100,111 @@
 .legend-item .seat.x , .seat.occupied.x{
   cursor: default;
 }
+
+/* Selected-seat drawer */
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1002;
+  width: min(360px, 90vw);
+  height: 100vh;
+  padding: 5.5rem 1.5rem 2rem;
+  color: #ffffff;
+  background: #141518;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -18px 0 40px rgba(0, 0, 0, 0.35);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+body.cart-open .cart-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.cart-open .site-header {
+  z-index: 1003;
+}
+
+body.cart-open .cart-drawer {
+  transform: translateX(0);
+}
+
+.cart-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.drawer-eyebrow {
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.cart-drawer h2 {
+  font-size: 1.4rem;
+}
+
+.drawer-total {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.selected-seats {
+  padding-top: 1.25rem;
+}
+
+.selected-seat {
+  display: inline-block;
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0.6rem 0.75rem;
+  color: #0d0e12;
+  background: #ffffff;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.empty-cart {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.checkout-link {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1rem;
+  color: #0d0e12;
+  background: #ffffff;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.checkout-link:hover {
+  color: #ffffff;
+  background: #64748b;
+}
