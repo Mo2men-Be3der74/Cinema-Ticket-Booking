@@ -204,6 +204,10 @@ body.cart-open .cart-drawer {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.checkout-link[hidden] {
+  display: none;
+}
+
 .checkout-link:hover {
   color: #ffffff;
   background: #64748b;
