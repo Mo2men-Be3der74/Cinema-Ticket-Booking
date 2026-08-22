@@ -6,14 +6,14 @@
 }
 
 :root {
-      --color-matte-noir: #0A0A0C;
-      --color-flat-charcoal: #141518;
-      --color-slate-neutral: #8E8E93;
-      --color-slate-muted: #545458;
-      --color-hairline-border: #22242A;
-      --color-primary: #FFFFFF;
-      --color-secondary-bg: #1A1B1E;
-      --color-dark-hover: #EAEAEA;
+  --color-matte-noir: #0A0A0C;
+  --color-flat-charcoal: #141518;
+  --color-slate-neutral: #8E8E93;
+  --color-slate-muted: #545458;
+  --color-hairline-border: #22242A;
+  --color-primary: #FFFFFF;
+  --color-secondary-bg: #1A1B1E;
+  --color-dark-hover: #EAEAEA;
 }
 
 main {
@@ -73,6 +73,8 @@ html {
 }
 
 .nav-link {
+  position: relative;
+  display: inline-block;
   color: #94a3b8;
   text-decoration: none;
   font-size: 0.75rem;
@@ -80,6 +82,27 @@ html {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.55rem;
+  left: 0;
+  height: 2px;
+  content: "";
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.nav-link.active::after {
+  animation: nav-pointer-grow 0.35s ease-out forwards;
+}
+
+@keyframes nav-pointer-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .nav-link:hover,
@@ -173,6 +196,77 @@ html {
 
 .profile-btn:hover svg {
   stroke: #ffffff;
+}
+
+/* Cart control */
+.cart-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.cart-btn:hover,
+.cart-btn[aria-expanded="true"] {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cart-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.back-icon {
+  display: none;
+}
+
+.cart-btn[aria-expanded="true"] .cart-icon {
+  display: none;
+}
+
+.cart-btn[aria-expanded="true"] .back-icon {
+  display: block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: grid;
+  place-items: center;
+  color: #0d0e12;
+  background: #ffffff;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cart-count[hidden] {
+  display: none;
+}
+
+.cart-btn.bounce {
+  animation: cart-bounce 0.45s ease;
+}
+
+@keyframes cart-bounce {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(-7px); }
+  65% { transform: translateY(2px); }
 }
 
 /* Responsive Behavior */
