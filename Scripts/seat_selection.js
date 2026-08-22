@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-link');
   const seats = document.querySelectorAll('.seat-grid .seat');
   const cartButton = document.querySelector('.cart-btn');
   const cartCount = document.querySelector('.cart-count');
@@ -7,6 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectedSeats = document.querySelector('.selected-seats');
   const drawerTotal = document.querySelector('.drawer-total');
   const checkoutLink = document.querySelector('.checkout-link');
+
+  navLinks.forEach(link => {
+    const linkPath = new URL(link.href, window.location.href).pathname;
+    const currentPath = window.location.pathname;
+    const isCurrentPage = linkPath === currentPath || linkPath.endsWith(currentPath);
+
+    link.classList.toggle('active', isCurrentPage);
+    if (isCurrentPage) {
+      link.setAttribute('aria-current', 'page');
+    }
+
+    link.addEventListener('click', () => {
+      navLinks.forEach(navLink => {
+        navLink.classList.remove('active');
+        navLink.removeAttribute('aria-current');
+      });
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    });
+  });
 
   const updateCart = () => {
     const selected = document.querySelectorAll('.seat-grid .seat.selected');
