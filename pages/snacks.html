@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/pages/base .css">
+    <link rel="stylesheet" href="/style/base.css">
 
 </head>
 <body>
@@ -12,7 +12,7 @@
 <header class="site-header">
   <nav class="navbar">
     <!-- 1. Logo (Far Left) -->
-    <a href="#" class="brand-logo">LUMA</a>
+    <a href="/index.html" class="brand-logo">LUMA</a>
 
     <!-- 2. Main Navigation Links (Middle / Spaced) -->
     <ul class="nav-menu">
@@ -31,6 +31,18 @@
         <span class="kbd-shortcut">⌘K</span>
       </div>
 
+      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="20" r="1"></circle>
+          <circle cx="19" cy="20" r="1"></circle>
+          <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6"></path>
+        </svg>
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        <span class="cart-count" aria-live="polite" hidden>0</span>
+      </button>
+
       <button class="profile-btn" aria-label="User Account">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -41,11 +53,11 @@
   </nav>
 </header>
 
-<section class="">
+<section class="snacks">
       <div class="radio">
             <div class="radio">
                   <div class="option">
-                        <input type="radio" id="all" name="screening" value="all">
+                        <input type="radio" id="all" name="snack-type" value="all">
                         <label for="all">ALL</label>
                   </div>
                   <div class="option">

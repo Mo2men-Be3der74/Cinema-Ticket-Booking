@@ -10,18 +10,18 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+      <script src = "/Scripts/index.js"></script>
 </head>
 <body>
 <header class="site-header">
   <nav class="navbar">
     <!-- 1. Logo (Far Left) -->
-    <a href="#" class="brand-logo">LUMA</a>
+    <a href="/index.html" class="brand-logo">LUMA</a>
 
     <!-- 2. Main Navigation Links (Middle / Spaced) -->
     <ul class="nav-menu">
-      <li><a href="#" class="nav-link">MOVIES</a></li>
-      <li><a href="#" class="nav-link">THEATERS</a></li>
-      <li><a href="#" class="nav-link">CONCESSIONS</a></li>
+      <li><a href="/pages/movies.html" class="nav-link">MOVIES</a></li>
+      <li><a href="/pages/snacks.html" class="nav-link">SNACKS</a></li>
     </ul>
 
     <!-- 3. Search & Profile (Far Right) -->
@@ -90,86 +90,30 @@
                   <label for="all">ALL</label>
             </div>
             <div class="option">
-                  <input type="radio" id="now-playing" name="screening" value="now-playing">
-                  <label for="now-playing">NOW PLAYING</label>
+                  <input type="radio" id="not-playing" name="screening" value="not-playing">
+                  <label for="not-playing">NOW PLAYING</label>
             </div>
             <div class="option">
                   <input type="radio" id="upcoming" name="screening" value="upcoming">
-                  <label for="upcoming">UPCOMING</label>
+                  <label for="upcoming">UpComing</label>
             </div>
             <div class="option">
                   <input type="radio" id="imax" name="screening" value="imax">
-                  <label for="imax">IMAX SCREENINGS</label>
+                  <label for="imax">IMAX Screenings</label>
             </div>
             <div class="option">
                   <input type="radio" id="special" name="screening" value="special">
-                  <label for="special">SPECIAL SCREENINGS</label>
+                  <label for="special">Special Screenings</label>
             </div>
       </div>
 </div>
 
 <section class="now-playing">
       <div class="title">
-            <div class="left">NOW PLAYING</div>
-            <a class="right" href="">VIEW ALL MOVIES <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="left" id="category-title">NOW PLAYING</div>
+            <a class="right" href="/pages/movies.html" >View all Movies <i class = "fa-solid fa-arrow-right"></i></a>
       </div>
-      <div class="movie-list">
-            <div class="movie-card">
-                  <div class="image">
-                        <!-- <img src="dune.jpg" alt="Dune: Part Two"> -->
-                        <div class="poster"></div>
-                  </div>
-                  <div class="movie-info">
-                        <h2>DUNE: PART TWO</h2>
-                        <p>2026</p>
-                        <p>2H 49M</p>
-                  </div>
-            </div>
-            <div class="movie-card">
-                  <div class="image">
-                        <div class="poster"></div>
-                        <!-- <img src="dune.jpg" alt="Dune: Part Two"> -->
-                  </div>
-                  <div class="movie-info">
-                        <h2>DUNE: PART TWO</h2>
-                        <p>2026</p>
-                        <p>2H 49M</p>
-                  </div>
-            </div>
-            <div class="movie-card">
-                  <div class="image">
-                        <!-- <img src="/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg" alt="Dune: Part Two"> -->
-                        <div class="poster"></div>
-                  </div>
-                  <div class="movie-info">
-                        <h2>DUNE: PART TWO</h2>
-                        <p>2026</p>
-                        <p>2H 49M</p>
-                  </div>
-            </div>
-            <div class="movie-card">
-                  <div class="image">
-                        <div class="poster"></div>
-                        <!-- <img src="dune.jpg" alt="Dune: Part Two"> -->
-                  </div>
-                  <div class="movie-info">
-                        <h2>DUNE: PART TWO</h2>
-                        <p>2026</p>
-                        <p>2H 49M</p>
-                  </div>
-            </div>
-            <div class="movie-card">
-                  <div class="image">
-                        <div class="poster"></div>
-                        <!-- <img src="dune.jpg" alt="Dune: Part Two"> -->
-                  </div>
-                  <div class="movie-info">
-                        <h2>DUNE: PART TWO</h2>
-                        <p>2026</p>
-                        <p>2H 49M</p>
-                  </div>
-            </div>
-      </div>
+      <div class="movie-list" id="movie-list"></div>
 </section>
 
 <footer class="site-footer">
