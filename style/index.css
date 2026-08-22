@@ -143,3 +143,24 @@ input[type="radio"]:hover + label {
       border-bottom: 2px solid var(--color-slate-neutral);
 }
 
+.now-playing {
+      margin-top: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+}
+
+.title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 54px;
+      margin-bottom: 50px;
+}
+
+.movie-list {
+      display: flex;
+      gap: 16px;
+      padding: 0 54px;
+      margin-bottom: 50px;
+}
