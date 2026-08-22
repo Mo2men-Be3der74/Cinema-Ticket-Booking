@@ -130,10 +130,11 @@ input[type="radio"] {
 label {
       position: relative;
       padding: 4px 8px;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 15px;
       letter-spacing: 1px;
-      border-bottom: 2px solid transparent;
+      border-bottom: 1px solid transparent;
+      border-radius: 5px 5px 0px 0px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -141,13 +142,13 @@ label {
 }
 
 input[type="radio"]:checked + label {
-      border-bottom: 2px solid var(--color-slate-neutral);
+      border-bottom: 1px solid var(--color-slate-neutral);
       transition: all 0.2s ease;
 }
 
 input[type="radio"]:hover + label {
       background-color: var(--color-hairline-border);
-      border-bottom: 2px solid var(--color-slate-neutral);
+      border-bottom: 1px solid var(--color-slate-neutral);
 }
 
 .now-playing {
@@ -155,6 +156,16 @@ input[type="radio"]:hover + label {
       display: flex;
       flex-direction: column;
       gap: 16px;
+}
+
+.left{
+  font-size: 22px;
+}
+
+.right{
+    text-decoration: none;
+    color :#FFFFFF;
+    font-size : 22px;
 }
 
 .title {
@@ -172,6 +183,27 @@ input[type="radio"]:hover + label {
       margin-bottom: 50px;
       justify-content: center;
       gap: 5%;
+}
+
+.movie-list.fade-out {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.movie-list.fade-in {
+      animation: movie-list-fade-in 0.35s ease forwards;
+}
+
+@keyframes movie-list-fade-in {
+      from {
+            opacity: 0;
+            transform: translateY(-8px);
+      }
+      to {
+            opacity: 1;
+            transform: translateY(0);
+      }
 }
 
 .movie-list .movie-card {
