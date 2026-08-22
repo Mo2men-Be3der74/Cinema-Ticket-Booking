@@ -173,3 +173,16 @@ input[type="radio"]:hover + label {
       justify-content: center;
       gap: 5%;
 }
+
+.movie-list .movie-card {
+      width: 100%;
+      height: 100%;
+}
+
+.movie-list .movie-card .poster {
+      aspect-ratio: 2 / 3;
+      margin-bottom: 10px;
+      background-color: var(--color-secondary-bg);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+}
