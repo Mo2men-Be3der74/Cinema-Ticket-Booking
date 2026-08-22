@@ -1,0 +1,42 @@
+.snacks { min-height: calc(100vh - 64px); padding: 72px 32px 280px; }
+.snacks-container { max-width: 1280px; margin: 0 auto; }
+.snacks-heading { margin-bottom: 38px; }
+.section-kicker, .drawer-eyebrow { color: #8e8e93; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
+.snacks-heading h1 { max-width: 560px; margin-top: 14px; font-size: clamp(2rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -2px; font-weight: 500; }
+.snack-filters { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 0; margin-bottom: 38px; border-top: 1px solid #22242a; border-bottom: 1px solid #22242a; }
+.snack-filters .option { display: flex; }
+.snack-filters input { position: absolute; opacity: 0; }
+.snack-filters label { padding: 11px 15px; border: 1px solid transparent; border-radius: 3px; color: #8e8e93; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+.snack-filters label:hover, .snack-filters input:checked + label { color: #0a0a0c; background: #fff; border-color: #fff; }
+.snack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.snack-card { position: relative; display: flex; flex-direction: column; overflow: hidden; background: #141518; border: 1px solid #22242a; border-radius: 7px; animation: reveal .4s ease both; }
+.snack-image { aspect-ratio: 1 / .86; overflow: hidden; background: #1a1b1e; }
+.snack-image img { width: 100%; height: 100%; object-fit: cover; opacity: .82; transition: transform .45s ease, opacity .3s ease; }
+.snack-card:hover img { opacity: 1; transform: scale(1.06); }
+.snack-card-content { display: flex; flex: 1; flex-direction: column; padding: 18px; }
+.snack-card h2 { max-width: 75%; min-height: 38px; font-size: 14px; line-height: 1.35; font-weight: 600; }
+.snack-card-footer { display: flex; align-items: end; justify-content: space-between; gap: 8px; margin-top: 22px; }
+.snack-price { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 700; }
+.quantity-control, .cart-snack-actions { display: flex; align-items: center; gap: 8px; color: #8e8e93; }
+.quantity-control button, .cart-snack-actions button { width: 24px; height: 24px; border: 1px solid #32343a; border-radius: 3px; color: inherit; background: transparent; cursor: pointer; }
+.quantity-control button:hover, .cart-snack-actions button:hover { color: #0a0a0c; background: #fff; }
+.quantity-control span, .cart-snack-actions span { min-width: 14px; text-align: center; font-size: 11px; }
+.add-snack { position: absolute; right: 14px; bottom: 62px; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: #0a0a0c; background: #fff; font-size: 20px; line-height: 1; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.add-snack:hover { transform: scale(1.12); background: #eaeaea; }
+.cart-backdrop { position: fixed; inset: 0; z-index: 1001; background: rgba(0,0,0,.58); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
+.cart-drawer { position: fixed; z-index: 1002; top: 0; right: 0; width: min(430px, 92vw); height: 100vh; padding: 30px 26px; overflow-y: auto; background: #141518; border-left: 1px solid #32343a; transform: translateX(100%); transition: transform .28s ease; }
+body.cart-open .cart-backdrop { opacity: 1; pointer-events: auto; } body.cart-open .cart-drawer { transform: translateX(0); }
+.cart-drawer-header { display: flex; justify-content: space-between; align-items: start; padding-bottom: 26px; border-bottom: 1px solid #32343a; }
+.cart-drawer h2 { margin-top: 8px; font-size: 27px; font-weight: 500; }
+.drawer-total { color: #8e8e93; font-size: 11px; }
+.empty-cart { padding: 32px 0; color: #8e8e93; font-size: 13px; }
+.cart-snack { display: grid; grid-template-columns: 54px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid #22242a; }
+.cart-snack img { width: 54px; height: 54px; object-fit: cover; border-radius: 4px; }
+.cart-snack-info h3 { font-size: 12px; font-weight: 600; }
+.cart-snack-info span { display: block; margin-top: 7px; color: #8e8e93; font-size: 11px; }
+.cart-snack-actions { grid-column: 2; }
+.delete-snack { margin-left: 6px; color: #e07878 !important; }
+.cart-drawer[aria-hidden="true"] { visibility: hidden; }
+@keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { .snack-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .snacks { padding: 48px 18px 280px; } .snack-grid { grid-template-columns: 1fr; } .search-box { display: none; } }

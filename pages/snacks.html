@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/style/base.css">
-
+    <link rel="stylesheet" href="/style/snacks.css">
+    <script src="/Scripts/snacks.js"></script>
 </head>
 <body>
   
@@ -31,7 +32,7 @@
         <span class="kbd-shortcut">⌘K</span>
       </div>
 
-      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false">
+      <button class="cart-btn" type="button" aria-label="Open snack cart" aria-expanded="false">
         <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="20" r="1"></circle>
           <circle cx="19" cy="20" r="1"></circle>
@@ -54,35 +55,25 @@
 </header>
 
 <section class="snacks">
-      <div class="radio">
-            <div class="radio">
-                  <div class="option">
-                        <input type="radio" id="all" name="snack-type" value="all">
-                        <label for="all">ALL</label>
-                  </div>
-                  <div class="option">
-                        <input type="radio" id="combos" name="snack-type" value="combos">  
-                        <label for="combos">COMBOS</label>
-                  </div>
-                  <div class="option">
-                        <input type="radio" id="popcorn" name="snack-type" value="popcorn">
-                        <label for="popcorn">POPCORN</label>
-                  </div>
-                  <div class="option">
-                        <input type="radio" id="nachos" name="snack-type" value="nachos">
-                        <label for="nachos">NACHOS</label>
-                  </div>
-                  <div class="option">
-                        <input type="radio" id="beverages" name="snack-type" value="beverages">
-                        <label for="beverages">BEVERAGES</label>
-                  </div>
-                  <div class="option">
-                        <input type="radio" id="candy" name="snack-type" value="candy">
-                        <label for="candy">CANDY</label>
-                  </div>
+  <div class="snacks-container">
+    <div class="snacks-heading"><p class="section-kicker">CONCESSIONS</p><h1>Something for the opening scene.</h1></div>
+    <div class="snack-filters" role="radiogroup" aria-label="Snack categories">
+                  <div class="option"><input type="radio" id="all" name="snack-type" value="all" checked><label for="all">ALL</label></div>
+                  <div class="option"><input type="radio" id="combos" name="snack-type" value="combos"><label for="combos">COMBOS</label></div>
+                  <div class="option"><input type="radio" id="popcorn" name="snack-type" value="popcorn"><label for="popcorn">POPCORN</label></div>
+                  <div class="option"><input type="radio" id="nachos" name="snack-type" value="nachos"><label for="nachos">NACHOS</label></div>
+                  <div class="option"><input type="radio" id="beverages" name="snack-type" value="beverages"><label for="beverages">BEVERAGES</label></div>
+                  <div class="option"><input type="radio" id="candy" name="snack-type" value="candy"><label for="candy">CANDY</label></div>
             </div>
+                <div class="snack-grid" id="snack-grid" aria-live="polite"></div>
       </div>
 </section>
+
+            <div class="cart-backdrop" aria-hidden="true"></div>
+            <aside class="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+              <div class="cart-drawer-header"><div><p class="drawer-eyebrow">YOUR SELECTION</p><h2 id="cart-title">Snack cart</h2></div><span class="drawer-total">0 items</span></div>
+              <div class="snack-cart-items" id="snack-cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+            </aside>
 
 <footer class="site-footer">
   <div class="footer-container">
