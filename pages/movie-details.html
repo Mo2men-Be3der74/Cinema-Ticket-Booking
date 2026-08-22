@@ -1,87 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/pages/base .css">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="../style/movie-details.css">
 
-</head>
-<body>
-  
-<header class="site-header">
-  <nav class="navbar">
-    <!-- 1. Logo (Far Left) -->
-    <a href="#" class="brand-logo">LUMA</a>
+  </head>
+  <body>
+    
+  <header class="site-header">
+    <nav class="navbar">
+      
+      <a href="../index.html" class="brand-logo">LUMA</a>
 
-    <!-- 2. Main Navigation Links (Middle / Spaced) -->
-    <ul class="nav-menu">
-      <li><a href="#" class="nav-link">MOVIES</a></li>
-      <li><a href="#" class="nav-link">THEATERS</a></li>
-      <li><a href="#" class="nav-link">CONCESSIONS</a></li>
-    </ul>
 
-    <!-- 3. Search & Profile (Far Right) -->
-    <div class="nav-right">
-      <div class="search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      <ul class="nav-menu">
+        <li><a href="../pages/movies.html" class="nav-link">MOVIES</a></li>
+
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" placeholder="Search movies..." aria-label="Search movies">
+          <span class="kbd-shortcut">⌘K</span>
+        </div>
+
+        <button class="profile-btn" aria-label="User Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+<main class="movie-details-page">
+  <!-- Back Link -->
+  <a href="../index.html" class="back-link">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    BACK TO HOME
+  </a>
+
+  <!-- Two-Column Stage -->
+  <div class="movie-stage">
+    <!-- Left Column: Poster + Trailer Action -->
+    <aside class="poster-column">
+      <div class="poster-wrapper">
+        <img id="movie-poster" src="https://picsum.photos/600/900?grayscale" alt="Movie Poster">
+      </div>
+      <button class="trailer-btn" id="movie-trailer-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
         </svg>
-        <input type="text" placeholder="Search movies..." aria-label="Search movies">
-        <span class="kbd-shortcut">⌘K</span>
+        WATCH OFFICIAL TRAILER
+      </button>
+    </aside>
+
+    <!-- Right Column: Metadata & Details -->
+    <section class="info-column">
+      <!-- Genre Pills -->
+      <div class="badge-group" id="movie-genres">
+        <span id="movie-genre" class="badge">SCI-FI</span>
+        <span id="movie-genre2" class="badge">ADVENTURE</span>
+        <span id="movie-genre3" class="badge">IMAX 70MM</span>
       </div>
 
-      <button class="profile-btn" aria-label="User Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
+      <!-- Main Title -->
+      <h1 class="movie-title" id="movie-title">DUNE:<br>PART TWO</h1>
+
+      <!-- Meta Strip -->
+      <div class="meta-strip">
+        <span id="movie-rating">PG-13</span>
+        <span id="movie-duration">2H 46M</span>
+        <span id="movie-audio">ENGLISH (AUDIO)</span>
+        <span id="movie-subtitles">ARABIC (SUBTITLES)</span>
+        <span class="imdb-score" id="movie-score">★ 8.7 IMDB</span>
+      </div>
+
+      <hr class="hairline-divider">
+
+      <!-- Synopsis Section -->
+      <div class="synopsis-group">
+        <h3 class="section-label">SYNOPSIS</h3>
+        <p class="synopsis-text" id="movie-description">
+          Paul Atreides unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.
+        </p>
+      </div>
+
+      <!-- Director & Cast -->
+      <div class="credits-grid">
+        <div class="credit-block">
+          <h3 id="movie-director" class="section-label">DIRECTOR</h3>
+          <div class="person-card">
+            <img id="movie-director-avatar" class="avatar" src="https://picsum.photos/80/80?random=1" alt="Director">
+            <span>Denis Villeneuve</span>
+          </div>
+        </div>
+        <div class="credit-block">
+          <h3 id="movie-cast" class="section-label">CAST</h3>
+          <div class="avatar-stack">
+            <img id="movie-cast-avatar1" class="avatar" src="https://picsum.photos/80/80?random=2" alt="Cast Member 1">
+            <img id="movie-cast-avatar2" class="avatar" src="https://picsum.photos/80/80?random=3" alt="Cast Member 2">
+            <img id="movie-cast-avatar3" class="avatar" src="https://picsum.photos/80/80?random=4" alt="Cast Member 3">
+            <span id="movie-cast-count" class="avatar-count">+12</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Bottom CTA Bar -->
+  <div class="bottom-action-bar">
+    <div class="bottom-action-container">
+      
+      <!-- Child 1 (Left Group) -->
+      <div class="location-info">
+        <span class="location-label">AVAILABLE AT</span>
+        <strong class="location-value">Downtown Luxury • Hall 01 & 04</strong>
+      </div>
+
+      <!-- Child 2 (Right Button) -->
+      <button class="cta-button">
+        SELECT SHOWTIME
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </button>
-    </div>
-  </nav>
-</header>
 
-<footer class="site-footer">
-  <div class="footer-container">
-    <!-- Column 1: Experience -->
-    <div class="footer-col">
-      <h4 class="footer-heading">EXPERIENCE</h4>
-      <ul class="footer-links">
-        <li><a href="../">IMAX LASER</a></li>
-        <li><a href="#">DOLBY CINEMA</a></li>
-        <li><a href="#">THE LOUNGE</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 2: Company -->
-    <div class="footer-col">
-      <h4 class="footer-heading">COMPANY</h4>
-      <ul class="footer-links">
-        <li><a href="#">ABOUT LUMA</a></li>
-        <li><a href="#">CAREERS</a></li>
-        <li><a href="#">PRESS</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 3: Social -->
-    <div class="footer-col">
-      <h4 class="footer-heading">SOCIAL</h4>
-      <ul class="footer-links">
-        <li><a href="#">INSTAGRAM</a></li>
-        <li><a href="#">TWITTER / X</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 4: Brand & Copyright -->
-    <div class="footer-col footer-brand-col">
-      <h2 class="footer-logo">LUMA</h2>
-      <p class="tagline">CINEMA, DISTILLED.</p>
-      <p class="copyright">&copy; 2026 LUMA CINEMA GROUP.<br>ALL RIGHTS RESERVED.</p>
     </div>
   </div>
-</footer>
+</main>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Column 1: Experience -->
+      <div class="footer-col">
+        <h4 class="footer-heading">EXPERIENCE</h4>
+        <ul class="footer-links">
+          <li><a href="../">IMAX LASER</a></li>
+          <li><a href="#">DOLBY CINEMA</a></li>
+          <li><a href="#">THE LOUNGE</a></li>
+        </ul>
+      </div>
 
-</body>
-</body>
+      <!-- Column 2: Company -->
+      <div class="footer-col">
+        <h4 class="footer-heading">COMPANY</h4>
+        <ul class="footer-links">
+          <li><a href="#">ABOUT LUMA</a></li>
+          <li><a href="#">CAREERS</a></li>
+          <li><a href="#">PRESS</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Social -->
+      <div class="footer-col">
+        <h4 class="footer-heading">SOCIAL</h4>
+        <ul class="footer-links">
+          <li><a href="#">INSTAGRAM</a></li>
+          <li><a href="#">TWITTER / X</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Brand & Copyright -->
+      <div class="footer-col footer-brand-col">
+        <h2 class="footer-logo">LUMA</h2>
+        <p class="tagline">CINEMA, DISTILLED.</p>
+        <p class="copyright">&copy; 2026 LUMA CINEMA GROUP.<br>ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  </body>
+
 </html>
