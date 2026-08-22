@@ -6,7 +6,7 @@
     <title>LUMA</title>
     <link rel = "stylesheet" href = "/style/seat_selection.css" >
     <link rel = "stylesheet" href = "/style/base.css" >
-    <script src = "/Scripts/seat_selection.JS"></script>
+    <script src = "/Scripts/seat_selection.js"></script>
 </head>
 
 <body>
@@ -34,6 +34,18 @@
         <span class="kbd-shortcut">⌘K</span>
       </div>
 
+      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9" cy="20" r="1"></circle>
+          <circle cx="19" cy="20" r="1"></circle>
+          <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 8H6"></path>
+        </svg>
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        <span class="cart-count" aria-live="polite" hidden>0</span>
+      </button>
+
       <button class="profile-btn" aria-label="User Account">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -43,6 +55,21 @@
     </div>
   </nav>
 </header>
+
+<div class="cart-backdrop" aria-hidden="true"></div>
+<aside class="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+  <div class="cart-drawer-header">
+    <div>
+      <p class="drawer-eyebrow">YOUR SELECTION</p>
+      <h2 id="cart-title">Selected seats</h2>
+    </div>
+    <span class="drawer-total">0 seats</span>
+  </div>
+  <div class="selected-seats" aria-live="polite">
+    <p class="empty-cart">No seats selected yet.</p>
+  </div>
+  <a class="checkout-link" href="/pages/payment.html" hidden>Check out</a>
+</aside>
 
 
 <div class="seating-container">

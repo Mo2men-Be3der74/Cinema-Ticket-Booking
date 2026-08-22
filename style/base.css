@@ -175,6 +175,77 @@ html {
   stroke: #ffffff;
 }
 
+/* Cart control */
+.cart-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.cart-btn:hover,
+.cart-btn[aria-expanded="true"] {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cart-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.back-icon {
+  display: none;
+}
+
+.cart-btn[aria-expanded="true"] .cart-icon {
+  display: none;
+}
+
+.cart-btn[aria-expanded="true"] .back-icon {
+  display: block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: grid;
+  place-items: center;
+  color: #0d0e12;
+  background: #ffffff;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cart-count[hidden] {
+  display: none;
+}
+
+.cart-btn.bounce {
+  animation: cart-bounce 0.45s ease;
+}
+
+@keyframes cart-bounce {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(-7px); }
+  65% { transform: translateY(2px); }
+}
+
 /* Responsive Behavior */
 @media (max-width: 768px) {
   .nav-menu {
