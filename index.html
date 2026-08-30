@@ -3,25 +3,24 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Home</title>
-      <link rel="stylesheet" href="../style/index.css">
-      <link rel="stylesheet" href="../style/base.css">
+      <title>LUMA — Cinema, Distilled</title>
+      <link rel="stylesheet" href="style/base.css">
+      <link rel="stylesheet" href="style/index.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-      <script src = "/Scripts/index.js"></script>
 </head>
 <body>
 <header class="site-header">
   <nav class="navbar">
     <!-- 1. Logo (Far Left) -->
-    <a href="/index.html" class="brand-logo">LUMA</a>
+    <a href="index.html" class="brand-logo">LUMA</a>
 
     <!-- 2. Main Navigation Links (Middle / Spaced) -->
     <ul class="nav-menu">
-      <li><a href="/pages/movies.html" class="nav-link">MOVIES</a></li>
-      <li><a href="/pages/snacks.html" class="nav-link">SNACKS</a></li>
+      <li><a href="pages/movies.html" class="nav-link">MOVIES</a></li>
+      <li><a href="pages/snacks.html" class="nav-link">SNACKS</a></li>
     </ul>
 
     <!-- 3. Search & Profile (Far Right) -->
@@ -35,7 +34,7 @@
         <span class="kbd-shortcut">⌘K</span>
       </div>
 
-      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false">
+      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false" onclick="window.location.href='pages/seat-selection.html'">
         <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="20" r="1"></circle>
           <circle cx="19" cy="20" r="1"></circle>
@@ -47,7 +46,7 @@
         <span class="cart-count" aria-live="polite" hidden>0</span>
       </button>
 
-      <button class="profile-btn" aria-label="User Account">
+      <button class="profile-btn" aria-label="User Account" onclick="window.location.href='pages/profile.html'">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
@@ -58,35 +57,35 @@
 </header>
 
 <section class="main">
-      <div class="home-main" style="background-color: grey;">
+      <div class="home-main" id="hero-banner">
             <div class="content">
                   <div class="status">
-                        <div class="card playing">NOW PLAYING</div>
-                        <div class="card imax">IMAX 70MM</div>
+                        <div class="card playing" id="hero-badge-1">NOW PLAYING</div>
+                        <div class="card imax" id="hero-badge-2">IMAX 70MM</div>
                   </div>
                   <div class="title">
-                        <h1>DUNE: PART TWO</h1>
+                        <h1 id="hero-title">DUNE: PART TWO</h1>
                   </div>
                   <div class="attributes">
-                        <ul>
-                              <li>2026</li>
-                              <li>2H 49M</li>
-                              <li>ENGLISH AUDIO / ARABIC SUB</li>
-                              <li><i class="fa-solid fa-star"></i> 8.7 IMDB</li>
+                        <ul id="hero-attributes">
+                              <li id="hero-year">2026</li>
+                              <li id="hero-duration">2H 49M</li>
+                              <li id="hero-lang">ENGLISH AUDIO / ARABIC SUB</li>
+                              <li id="hero-rating"><i class="fa-solid fa-star"></i> 8.7 IMDB</li>
                         </ul>
                   </div>
-                  <div class="description">
+                  <div class="description" id="hero-description">
                         Paul Atreides unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe.
                   </div>
-                  <button>RESERVE TICKETS</button>
+                  <button id="hero-cta" onclick="window.location.href='pages/seat-selection.html'">RESERVE TICKETS</button>
             </div>
       </div>
 </section>
 
 <div class="radio">
-      <div class="radio">
+      <div class="radio-group">
             <div class="option">
-                  <input type="radio" id="not-playing" name="screening" value="not-playing">
+                  <input type="radio" id="not-playing" name="screening" value="not-playing" checked>
                   <label for="not-playing">NOW PLAYING</label>
             </div>
             <div class="option">
@@ -107,7 +106,7 @@
 <section class="now-playing">
       <div class="title">
             <div class="left" id="category-title">NOW PLAYING</div>
-            <a class="right" href="/pages/movies.html" >View all Movies <i class = "fa-solid fa-arrow-right"></i></a>
+            <a class="right" href="pages/movies.html">View all Movies <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="movie-list" id="movie-list"></div>
 </section>
@@ -151,5 +150,7 @@
     </div>
   </div>
 </footer>
+<script src="Scripts/tmdb.js"></script>
+<script src="Scripts/index.js"></script>
 </body>
 </html>
