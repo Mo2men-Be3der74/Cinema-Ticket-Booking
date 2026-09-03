@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUMA</title>
-    <link rel = "stylesheet" href = "/style/seat_selection.css" >
-    <link rel = "stylesheet" href = "/style/base.css" >
-    <script src = "/Scripts/seat_selection.js"></script>
+    <link rel = "stylesheet" href = "../style/seat_selection.css" >
+    <link rel = "stylesheet" href = "../style/base.css" >
+    <script src = "../Scripts/tmdb.js"></script>
+    <script src = "../Scripts/seat_selection.js" defer></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
 <header class="site-header">
   <nav class="navbar">
     <!-- 1. Logo (Far Left) -->
-    <a href="#" class="brand-logo">LUMA</a>
+    <a href="/index.html" class="brand-logo">LUMA</a>
 
     <!-- 2. Main Navigation Links (Middle / Spaced) -->
     <ul class="nav-menu">
@@ -70,6 +71,37 @@
   <a class="checkout-link" href="/pages/payment.html" hidden>Check out</a>
 </aside>
 
+
+<main class="seating-page">
+  <section class="showtime-panel" aria-labelledby="showtime-title">
+    <div class="showtime-heading">
+      <a href="../pages/movie-details.html" class="back-link back-to-details">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        BACK TO MOVIE DETAILS
+      </a>
+      <div>
+        <p class="drawer-eyebrow">RESERVE YOUR EXPERIENCE</p>
+        <h1 id="showtime-title">Choose a showtime</h1>
+      </div>
+    </div>
+    <div class="showtime-trailer" id="showtime-trailer"></div>
+    <div class="movie-booking-details">
+      <p class="movie-booking-eyebrow">NOW BOOKING</p>
+      <h2 id="selected-movie-title">Loading movie...</h2>
+      <div class="movie-booking-meta">
+        <span id="selected-movie-rating">Rating unavailable</span>
+        <span id="selected-movie-runtime">Runtime unavailable</span>
+        <span id="selected-movie-genres">Genres unavailable</span>
+      </div>
+      <p id="selected-movie-summary">Loading movie details...</p>
+    </div>
+    <div class="date-picker" id="date-picker" role="tablist" aria-label="Show dates"></div>
+    <div class="screening-types" id="screening-types" role="tablist" aria-label="Screening format"></div>
+    <div class="showtimes" id="showtimes" aria-live="polite"></div>
+  </section>
 
 <div class="seating-container">
   <!-- Screen Visual -->
@@ -206,6 +238,7 @@
     <div class="legend-item"><span class="seat occupied x"></span> Sold</div>
   </div>
 </div>
+</main>
 
 
 <footer class="site-footer">

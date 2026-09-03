@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const heroYear = document.querySelector('#hero-year');
 	const heroRating = document.querySelector('#hero-rating');
 	const heroDescription = document.querySelector('#hero-description');
+	const heroCta = document.querySelector('#hero-cta');
 
 	const categoryDisplayNames = {
 		'not-playing': 'NOW PLAYING',
@@ -43,6 +44,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 	// Update hero banner with top movie
 	const updateHeroSection = (movie) => {
 		if (!movie) return;
+		if (heroCta && movie.id) {
+			heroCta.onclick = () => {
+				window.location.href = `pages/seat-selection.html?id=${movie.id}`;
+			};
+		}
 		if (heroTitle) heroTitle.textContent = (movie.title || movie.original_title || 'DUNE: PART TWO').toUpperCase();
 		if (heroDescription && movie.overview) {
 			heroDescription.textContent = movie.overview.length > 220 

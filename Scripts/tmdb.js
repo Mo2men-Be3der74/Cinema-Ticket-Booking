@@ -41,12 +41,43 @@ async function getData(category = 'now_playing', page = 1) {
       }
 }
 
+async function getMovieResource(movieId, resource = '') {
+      if (!movieId) return null;
+
+      try {
+            const options = {
+                  method: 'GET',
+                  headers: {
+                        accept: 'application/json',
+                        Authorization: `Bearer ${TMDB_CONFIG.AUTH_TOKEN}`
+                  }
+            };
+            const response = await fetch(`${TMDB_CONFIG.BASE_URL}/movie/${movieId}${resource}?language=en-US`, options);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return await response.json();
+      } catch (e) {
+            console.error(`Error fetching TMDB movie ${resource || 'details'}:`, e);
+            return null;
+      }
+}
+
+const getMovieDetails = movieId => getMovieResource(movieId);
+const getMovieCredits = movieId => getMovieResource(movieId, '/credits');
+const getMovieVideos = movieId => getMovieResource(movieId, '/videos');
+const getMovieKeywords = movieId => getMovieResource(movieId, '/keywords');
+const getMovieReleaseDates = movieId => getMovieResource(movieId, '/release_dates');
+
 // Support browser globals and CommonJS / ES modules
 if (typeof window !== 'undefined') {
       window.getData = getData;
+      window.getMovieDetails = getMovieDetails;
+      window.getMovieCredits = getMovieCredits;
+      window.getMovieVideos = getMovieVideos;
+      window.getMovieKeywords = getMovieKeywords;
+      window.getMovieReleaseDates = getMovieReleaseDates;
       window.TMDB_CONFIG = TMDB_CONFIG;
 }
 if (typeof module !== 'undefined' && module.exports) {
-      module.exports = { getData, TMDB_CONFIG };
+      module.exports = { getData, getMovieDetails, getMovieCredits, getMovieVideos, getMovieKeywords, getMovieReleaseDates, TMDB_CONFIG };
 }
 

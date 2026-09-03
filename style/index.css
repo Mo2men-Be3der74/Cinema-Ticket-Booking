@@ -1,14 +1,3 @@
-:root {
-      --color-matte-noir: #0A0A0C;
-      --color-flat-charcoal: #141518;
-      --color-slate-neutral: #8E8E93;
-      --color-slate-muted: #545458;
-      --color-hairline-border: #22242A;
-      --color-primary: #FFFFFF;
-      --color-secondary-bg: #1A1B1E;
-      --color-dark-hover: #EAEAEA;
-}
-
 .main {
       width: 100%;
       display: flex;
