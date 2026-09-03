@@ -34,7 +34,14 @@
         <span class="kbd-shortcut">⌘K</span>
       </div>
 
-      <button class="cart-btn" type="button" aria-label="Open selected seats" aria-expanded="false" onclick="window.location.href='pages/seat-selection.html'">
+      <button class="profile-btn" aria-label="User Account" onclick="window.location.href='pages/profile.html'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+
+      <button class="cart-btn" type="button" aria-label="Open cart" aria-expanded="false">
         <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9" cy="20" r="1"></circle>
           <circle cx="19" cy="20" r="1"></circle>
@@ -44,13 +51,6 @@
           <path d="m15 18-6-6 6-6"></path>
         </svg>
         <span class="cart-count" aria-live="polite" hidden>0</span>
-      </button>
-
-      <button class="profile-btn" aria-label="User Account" onclick="window.location.href='pages/profile.html'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
       </button>
     </div>
   </nav>
@@ -150,6 +150,7 @@
     </div>
   </div>
 </footer>
+<script src="Scripts/cart.js" defer></script>
 <script src="Scripts/tmdb.js"></script>
 <script src="Scripts/index.js"></script>
 </body>

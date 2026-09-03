@@ -155,10 +155,6 @@ body.cart-open .cart-backdrop {
   pointer-events: auto;
 }
 
-body.cart-open .site-header {
-  z-index: 1003;
-}
-
 body.cart-open .cart-drawer {
   transform: translateX(0);
 }

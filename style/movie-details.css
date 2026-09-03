@@ -247,16 +247,6 @@ html {
   display: none;
 }
 
-.cart-btn.bounce {
-  animation: cart-bounce 0.45s ease;
-}
-
-@keyframes cart-bounce {
-  0%, 100% { transform: translateY(0); }
-  35% { transform: translateY(-7px); }
-  65% { transform: translateY(2px); }
-}
-
 /* Responsive Behavior */
 @media (max-width: 768px) {
   .nav-menu {
@@ -610,6 +600,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
+  text-decoration: none;
 }
 
 .cta-button:hover {

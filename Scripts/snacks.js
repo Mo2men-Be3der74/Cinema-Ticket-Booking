@@ -12,14 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ id: 'chocolate', name: 'Dark Chocolate', type: 'candy', price: 70, image: 'https://corona.eg/wp-content/uploads/2023/09/featured-darkchocolate.jpeg' },
 		{ id: 'gummies', name: 'Cinema Gummies', type: 'candy', price: 65, image: 'https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=800&q=85' }
 	];
-	const cart = new Map();
+	const cart = new Map(LumaCart.read().snacks.map(item => [item.id, item]));
 	const grid = document.querySelector('#snack-grid');
-	const cartItems = document.querySelector('#snack-cart-items');
-	const cartButton = document.querySelector('.cart-btn');
-	const cartCount = document.querySelector('.cart-count');
-	const drawer = document.querySelector('.cart-drawer');
-	const backdrop = document.querySelector('.cart-backdrop');
-	const total = document.querySelector('.drawer-total');
 	const quantityTotal = () => [...cart.values()].reduce((sum, item) => sum + item.quantity, 0);
 	const showLimitMessage = () => window.alert('MAX AMOUNT REACHED');
 	const changeQuantity = (snack, delta) => {
@@ -27,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (delta > 0 && quantityTotal() >= MAX_AMOUNT) return showLimitMessage();
 		const next = Math.max(0, current + delta);
 		if (next === 0) cart.delete(snack.id);
-		else cart.set(snack.id, { snack, quantity: next });
+		else cart.set(snack.id, { ...snack, quantity: next });
+		if (delta > 0) LumaCart.vibrate();
 	};
 	const renderGrid = type => {
 		grid.innerHTML = snacks.filter(snack => type === 'all' || snack.type === type).map(snack => `
@@ -39,27 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 	const renderGridQuantities = () => document.querySelectorAll('[data-quantity]').forEach(element => { element.textContent = cart.get(element.dataset.quantity)?.quantity || 0; });
 	const renderCart = () => {
-		const count = quantityTotal();
-		cartCount.textContent = count;
-		cartCount.hidden = count === 0;
-		total.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
-		cartItems.innerHTML = count === 0 ? '<p class="empty-cart">Your cart is empty.</p>' : [...cart.values()].map(({ snack, quantity }) => `
-			<div class="cart-snack"><img src="${snack.image}" alt=""><div class="cart-snack-info"><h3>${snack.name}</h3><span>${snack.price * quantity} EGP</span></div>
-				<div class="cart-snack-actions"><button type="button" data-action="decrease" data-id="${snack.id}" aria-label="Decrease ${snack.name}">-</button><span>${quantity}</span><button type="button" data-action="increase" data-id="${snack.id}" aria-label="Increase ${snack.name}">+</button><button class="delete-snack" type="button" data-action="delete" data-id="${snack.id}" aria-label="Remove ${snack.name}">&#215;</button></div></div>`).join('');
+		LumaCart.save({ snacks: [...cart.values()], seats: LumaCart.read().seats });
 		renderGridQuantities();
 	};
-	const setDrawer = open => { document.body.classList.toggle('cart-open', open); cartButton.setAttribute('aria-expanded', open); drawer.setAttribute('aria-hidden', !open); backdrop.setAttribute('aria-hidden', !open); };
 	document.querySelectorAll('input[name="snack-type"]').forEach(input => input.addEventListener('change', () => renderGrid(input.value)));
 	document.addEventListener('click', event => {
 		const button = event.target.closest('[data-action]');
 		if (!button) return;
 		const snack = snacks.find(item => item.id === button.dataset.id);
+		if (!snack) return;
 		if (button.dataset.action === 'delete') cart.delete(snack.id);
 		else changeQuantity(snack, button.dataset.action === 'increase' ? 1 : -1);
 		renderCart();
 	});
-	cartButton.addEventListener('click', () => setDrawer(!document.body.classList.contains('cart-open')));
-	backdrop.addEventListener('click', () => setDrawer(false));
 	renderGrid('all');
 	renderCart();
 });

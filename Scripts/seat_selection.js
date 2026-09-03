@@ -112,13 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navLinks = document.querySelectorAll('.nav-link');
   const seats = document.querySelectorAll('.seat-grid .seat');
-  const cartButton = document.querySelector('.cart-btn');
-  const cartCount = document.querySelector('.cart-count');
-  const cartDrawer = document.querySelector('.cart-drawer');
-  const cartBackdrop = document.querySelector('.cart-backdrop');
-  const selectedSeats = document.querySelector('.selected-seats');
-  const drawerTotal = document.querySelector('.drawer-total');
-  const checkoutLink = document.querySelector('.checkout-link');
+  const savedSeatLabels = new Set(LumaCart.read().seats.map(seat => seat.label));
+
+  seats.forEach(seat => {
+    const row = seat.closest('.row').querySelector('.row-label').textContent;
+    const seatNumber = Array.from(seat.parentElement.querySelectorAll('.seat')).indexOf(seat) + 1;
+    if (savedSeatLabels.has(`${row}${seatNumber}`)) seat.classList.add('selected');
+  });
 
   navLinks.forEach(link => {
     const linkPath = new URL(link.href, window.location.href).pathname;
@@ -142,21 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateCart = () => {
     const selected = document.querySelectorAll('.seat-grid .seat.selected');
-    cartCount.textContent = selected.length;
-    cartCount.hidden = selected.length === 0;
-    drawerTotal.textContent = `${selected.length} ${selected.length === 1 ? 'seat' : 'seats'}`;
-    checkoutLink.hidden = selected.length === 0;
-
-    if (selected.length === 0) {
-      selectedSeats.innerHTML = '<p class="empty-cart">No seats selected yet.</p>';
-      return;
-    }
-
-    selectedSeats.innerHTML = Array.from(selected, seat => {
+    const seatsInCart = Array.from(selected, seat => {
       const row = seat.closest('.row').querySelector('.row-label').textContent;
       const seatNumber = Array.from(seat.parentElement.querySelectorAll('.seat')).indexOf(seat) + 1;
-      return `<span class="selected-seat">${row}${seatNumber}</span>`;
-    }).join('');
+      return { label: `${row}${seatNumber}` };
+    });
+    LumaCart.save({ snacks: LumaCart.read().snacks, seats: seatsInCart });
   };
 
   const resetSeats = () => {
@@ -164,27 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
   };
 
-  const setDrawerState = isOpen => {
-    document.body.classList.toggle('cart-open', isOpen);
-    cartButton.setAttribute('aria-expanded', isOpen);
-    cartDrawer.setAttribute('aria-hidden', !isOpen);
-    cartBackdrop.setAttribute('aria-hidden', !isOpen);
-  };
-
   seats.forEach(seat => {
     seat.addEventListener('click', () => {
       seat.classList.toggle('selected');
       updateCart();
-      cartButton.classList.remove('bounce');
-      void cartButton.offsetWidth;
-      cartButton.classList.add('bounce');
+      if (seat.classList.contains('selected')) LumaCart.vibrate();
     });
   });
 
-  cartButton.addEventListener('click', () => {
-    setDrawerState(!document.body.classList.contains('cart-open'));
-  });
-
-  cartBackdrop.addEventListener('click', () => setDrawerState(false));
-  cartDrawer.addEventListener('click', event => event.stopPropagation());
 });
