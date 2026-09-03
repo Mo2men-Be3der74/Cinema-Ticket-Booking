@@ -97,19 +97,6 @@ html {
   transform-origin: center;
 }
 
-.nav-link.active::after {
-  animation: nav-pointer-grow 0.35s ease-out forwards;
-}
-
-@keyframes nav-pointer-grow {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: #ffffff;
-}
 
 /* Far Right: Search & Profile */
 .nav-right {
